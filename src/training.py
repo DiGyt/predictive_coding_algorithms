@@ -264,7 +264,7 @@ class SupervisedProjection(tf.keras.losses.Loss):
     """
 
     def __init__(self, size_y_pred=None, size_x_pred=None, name="supervised_gaussian_mixture", **kwargs):
-        super(SupervisedGaussianMixture, self).__init__(name=name, **kwargs)
+        super(SupervisedProjection, self).__init__(name=name, **kwargs)
         self.size_y_pred = int(size_y_pred) if size_y_pred is not None else None
         self.size_x_pred = int(size_x_pred) if size_x_pred is not None else None
 
@@ -304,7 +304,7 @@ class SupervisedProjection(tf.keras.losses.Loss):
         return tf.reduce_mean(tf.square(Y - Y_proj))
 
     def get_config(self):
-        config = super(SupervisedGaussianMixture, self).get_config()
+        config = super(SupervisedProjection, self).get_config()
         config.update({'size_x_pred': self.size_x_pred, 'size_y_pred': self.size_y_pred})
         return config
 
