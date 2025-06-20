@@ -1,6 +1,9 @@
 import warnings
 import logging
 
+import numpy as np
+from scipy import stats
+
 import matplotlib.pyplot as plt
 
 PLT_STYLE = "seaborn-v0_8-poster" # "xkcd"
@@ -71,3 +74,13 @@ def plot_series(x, x_pred, skip_layers=[]):
     
     # Show the figure
     plt.show()
+
+
+def plot_erp(x, ci=None, ax=plt):
+  """Plots an ERP. input shape must be (n_samples, n_steps). Ci should be the alpha level"""
+
+  erp = np.mean(x, axis=0)
+  ax.plot(erp) # - np.mean(results["Image Match"].mean()))
+  if ci != None:
+    critical_z = stats.norm.ppf(1 - ci / 2.)
+    ax.fill_between(np.arange(x.shape[1]), erp - critical_z * stats.sem(x, axis=0), erp + critical_z * stats.sem(x, axis=0), alpha=0.3)
