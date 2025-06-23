@@ -7,7 +7,7 @@ Open source code for the study: "Predictive Coding algorithms induce brain-like 
 
 This Github repository provides the code to fully replicate the study:
 "Predictive Coding algorithms induce brain-like responses in Artificial Neural Networks"
-Published here: https://doi.org/10.1101/2025.01.16.633317
+See the preprint here: https://doi.org/10.1101/2025.01.16.633317
 
 ---
 
